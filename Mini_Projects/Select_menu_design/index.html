@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Menu Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="selector">
+            <div id="selectField">
+                <p id="selectText">Select Social Media</p>
+                <i class="fa-solid fa-caret-down" id="arrowIcon"></i>
+            </div>
+
+            <ul id="list" class="hide">
+                <li class="options">
+                    <i class="fa-brands fa-facebook"></i>
+                    <p>facebook</p>
+                </li>
+                <li class="options">
+                    <i class="fa-brands fa-square-instagram"></i>
+                    <p>Instagram</p>
+                </li>
+                <li class="options">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <p>LinkedIn</p>
+                </li>
+                <li class="options">
+                    <i class="fa-brands fa-square-github"></i>
+                    <p>GitHub</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+<script>
+    let selectField = document.querySelector("#selectField");
+    let selectText = document.querySelector("#selectText");
+    let options = document.querySelectorAll(".options");
+    let list = document.querySelector("#list");
+    let arrowIcon = document.querySelector("#arrowIcon");
+    
+    selectField.onclick = () => {
+        list.classList.toggle("hide");
+        arrowIcon.classList.toggle("rotate");
+    };
+
+    options.forEach((option) => {
+        option.onclick = function () { 
+            selectText.innerHTML = this.textContent;
+            list.classList.toggle("hide");
+            arrowIcon.classList.toggle("rotate");
+        };
+    });
+</script>
+</html>
