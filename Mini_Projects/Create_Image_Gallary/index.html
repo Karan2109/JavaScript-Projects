@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Image Gallary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gallery-wrap">
+        <i class="fa-solid fa-left-long" id="backBtn"></i>
+        <div class="gallery">
+            <div>
+                <span><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=840&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img1"></span>
+                <span><img src="https://images.unsplash.com/photo-1532693490338-2f188ebd96c9?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img2"></span>
+                <span><img src="https://images.unsplash.com/photo-1618374645957-04e5cc73ec21?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img3"></span>
+            </div>
+            <div>
+                <span><img src="https://images.unsplash.com/photo-1618375531912-867984bdfd87?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img4"></span>
+                <span><img src="https://images.unsplash.com/photo-1618375325729-03447ed04aa2?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img5"></span>
+                <span><img src="https://images.unsplash.com/photo-1618374595738-96f68c8e47bf?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img6"></span>
+            </div>
+            <div>
+                <span><img src="https://images.unsplash.com/photo-1618374747874-d2f4595e0e89?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img7"></span>
+                <span><img src="https://images.unsplash.com/photo-1617922001439-4a2e6562f328?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img8"></span>
+                <span><img src="https://images.unsplash.com/photo-1618374478205-b3a0c4d0504b?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img9"></span>
+            </div>
+        </div>
+    
+        <i class="fa-solid fa-right-long" id="nextBtn"></i>
+    </div>
+</body>
+
+<script>
+    let scrollContainer = document.querySelector('.gallery'); // Corrected selector
+    let backBtn = document.querySelector('#backBtn');
+    let nextBtn = document.querySelector('#nextBtn');
+
+    scrollContainer.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        scrollContainer.scrollLeft += e.deltaY;
+        scrollContainer.style.scrollBehavior = "auto";
+    });
+
+    nextBtn.addEventListener("click", () => {  // Removed unnecessary event parameter (e)
+        scrollContainer.style.scrollBehavior = "smooth";
+        scrollContainer.scrollLeft += 900;
+    });
+
+    backBtn.addEventListener("click", () => {  // Removed unnecessary event parameter (e)
+        scrollContainer.style.scrollBehavior = "smooth";
+        scrollContainer.scrollLeft -= 900;
+    });
+
+</script>
+
+</html>
