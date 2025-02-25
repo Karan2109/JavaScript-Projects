@@ -29,8 +29,12 @@
         if(inputField.value.length > 0) {
             qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + inputField.value;
             imgBox.classList.add("show-img");
-        }
-        
+        }else {
+            inputField.classList.add("error");
+            setTimeout(() => {
+                inputField.classList.remove("error");
+            }, 1000);
+        }       
     }
 </script>
 <!-- <script>
