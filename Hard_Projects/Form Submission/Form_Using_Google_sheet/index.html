@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playing with Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="background-color: #212121">
+    <form name="submit-to-google-sheet">
+      <label for="fname">First Name:</label>
+      <input type="text" name="first_name" placeholder="First Name" /><br />
+
+      <label for="lname">Last Name:</label>
+      <input type="text" name="last_name" placeholder="Last Name" /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" placeholder="Email" /><br />
+
+      <label>Gender:</label>
+      <div class="gender-section">
+        <label>
+          <input type="radio" id="male" name="gender" value="male" /> Male
+        </label>
+        <label>
+          <input type="radio" id="female" name="gender" value="female" /> Female
+        </label>
+      </div>
+
+      <label for="Coding_Language">Coding Language:</label>
+      <select id="Coding_Language" name="Coding_Language">
+        <option value="">Select</option>
+        <option value="Python">Python</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="Java">Java</option>
+        <option value="C++">C++</option></select
+      ><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+    <span id="msg"></span>
+  </body>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwfRBvlHxJN1B3-ueLkdWYE1Jh2VwfW-LNN2OCAy6acmm44elCkLFU7u4Kn-pIWc6aj/exec";
+    const form = document.forms["submit-to-google-sheet"];
+    const msg = document.getElementById("msg");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      fetch(scriptURL, { method: "POST", body: new FormData(form) })
+        .then((response) => {
+                msg.innerText = "Thank You Form is Submitted!";
+            setTimeout(() => {
+                msg.innerText = "";
+            }, 2500);
+            form.reset();
+        })
+        .catch((error) => console.error("Error!", error.message));
+    });
+  </script>
+</html>
